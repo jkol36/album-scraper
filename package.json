@@ -33,6 +33,9 @@
     "babel-preset-es2016": "^6.24.1",
     "babel-register": "^6.24.1",
     "bluebird": "^3.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "firebase-admin": "^5.0.0",
+    "google": "^2.1.0",
     "mocha": "^3.4.2",
     "superagent": "^3.5.2",
     "superagent-bluebird-promise": "^4.2.0"
