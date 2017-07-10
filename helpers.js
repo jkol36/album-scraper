@@ -17,5 +17,5 @@ export const fetchAlbum = (artistName) => {
 }
 
 export const saveAlbum = (album, artist) => {
-  return albumRef.child(artist.split(' ').join('-')).update(album)
+  return albumRef.child(artist.split(' ').join('-')).push(album)
 }
