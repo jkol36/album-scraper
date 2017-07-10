@@ -4,6 +4,7 @@ import { queryRef } from './config'
 
 const start = () => {
   console.log('listening for queries')
+  queryRef.remove()
   queryRef.on('child_added', s => {
     console.log(s.val())
     fetchAlbum(s.val())

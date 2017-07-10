@@ -4,7 +4,7 @@ import {albumRef} from './config'
 
 
 export const fetchAlbum = (artistName) => {
-  
+
   return new Promise((resolve, reject) => {
     google(`${artistName} new album`, (err, res) => {
       if(!!err) {
@@ -17,5 +17,5 @@ export const fetchAlbum = (artistName) => {
 }
 
 export const saveAlbum = (album, artist) => {
-  return albumRef.child(artist.split(' ').join('-')).set(album)
+  return albumRef.child(artist.split(' ').join('-')).update(album)
 }
