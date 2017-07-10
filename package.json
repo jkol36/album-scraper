@@ -1,0 +1,40 @@
+{
+  "name": "node-starter-project",
+  "version": "1.0.0",
+  "description": "jon's node project template",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register -t 20000",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jko36/node-starter-project.git"
+  },
+  "keywords": [
+    "node",
+    "starter",
+    "project"
+  ],
+  "author": "Jon Kolman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jko36/node-starter-project/issues"
+  },
+  "homepage": "https://github.com/jko36/node-starter-project#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1"
+  },
+  "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "bluebird": "^3.5.0",
+    "mocha": "^3.4.2",
+    "superagent": "^3.5.2",
+    "superagent-bluebird-promise": "^4.2.0"
+  }
+}
