@@ -15,7 +15,6 @@ const start = () => {
     console.log(s.val())
     findArtistUrl(s.val())
     .then(parseForArtistUrl)
-    .then(findArtistUrl)
     .then(queryForArtistUrl)
     .then(parseForAlbum)
     .then(album => saveAlbum(album, s.val()))

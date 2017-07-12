@@ -15,7 +15,6 @@ export const findAlbum = (html, artist) => {
 }
 
 export const parseForArtistUrl = html => {
-  console.log('got html', html)
   return new Promise((resolve, reject) => {
      let $ = cheerio.load(html)
      let resultItems = $('#result-artists')
