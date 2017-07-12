@@ -14,8 +14,8 @@ const start = () => {
   queryRef.on('child_added', s => {
     console.log(s.val())
     findArtistUrl(s.val())
-    .then(queryForArtistUrl)
     .then(parseForArtistUrl)
+    .then(findArtistUrl)
     .then(queryForArtistUrl)
     .then(parseForAlbum)
     .then(album => saveAlbum(album, s.val()))
