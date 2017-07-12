@@ -16,6 +16,21 @@ export const fetchAlbum = (artistName) => {
   })
 }
 
+export const findArtistUrl = (artistName) => {
+  let url = `http://pitchfork.com/search/?query=${artistName.split(' ').join('%20')}`
+  return agent
+          .get(url)
+          .then(res => res.text)
+          .catch(err => err)
+}
+
+export const queryForArtistUrl = shortUrl => {
+  return agent
+          .get(`http://pitchfork.com${shortUrl}`)
+          .then(res => res.text)
+          .catch(err => err)
+}
+
 export const saveAlbum = (album, artist) => {
   return albumRef.child(artist.split(' ').join('-')).push(album)
 }

@@ -13,3 +13,41 @@ export const findAlbum = (html, artist) => {
     })
   })
 }
+
+export const parseForArtistUrl = html => {
+  console.log('got html', html)
+  return new Promise((resolve, reject) => {
+     let $ = cheerio.load(html)
+     let resultItems = $('#result-artists')
+     .find('.result-item')
+     .find('a')
+     .toArray()
+     resolve($(resultItems[0]).attr('href'))
+
+  })
+}
+
+export const parseForAlbum = html => {
+  let $ = cheerio.load(html)
+  let resultItem = $('#result-albumreviews')
+    .find('.result-item')
+    .first()
+  let albumImage = $(resultItem)
+    .find('.review')
+    .find('.artwork')
+    .find('img')
+    .attr('src')
+  let releaseDate = $(resultItem)
+      .find('.pub-date')
+      .text()
+  let name = $(resultItem)
+  .find('.title')
+  .text()
+
+  name = name.split(/\r?\n/).join('')
+  return Promise.resolve({
+    name,
+    albumImage,
+    releaseDate
+  })
+}

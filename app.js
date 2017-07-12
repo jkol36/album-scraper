@@ -1,5 +1,11 @@
-import { fetchAlbum, saveAlbum } from './helpers'
-import { findAlbum } from './parser'
+import { 
+  findArtistUrl,
+  queryForArtistUrl, 
+  saveAlbum } from './helpers'
+import { 
+  parseForArtistUrl, 
+  parseForAlbum
+} from './parser'
 import { queryRef } from './config'
 
 const start = () => {
@@ -7,10 +13,13 @@ const start = () => {
   queryRef.remove()
   queryRef.on('child_added', s => {
     console.log(s.val())
-    fetchAlbum(s.val())
-    .then(html => findAlbum(html, s.val()))
+    findArtistUrl(s.val())
+    .then(queryForArtistUrl)
+    .then(parseForArtistUrl)
+    .then(queryForArtistUrl)
+    .then(parseForAlbum)
     .then(album => saveAlbum(album, s.val()))
-    .catch(console.log)
+    .catch(err => err)
     
   })
 }
